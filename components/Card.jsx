@@ -8,8 +8,8 @@ import {
 
 const Card = ({ slang }) => {
   return (
-    <div className="p-10 border-2 rounded">
-      <h1 className="text-[28px] font-bold text-blue-800">{slang.title}</h1>
+    <div className="p-10 rounded-3xl bg-[#635985] ">
+      <h1 className="text-[28px] font-bold text-white">{slang.title}</h1>
       <p className="text-[14px] font-semibold">{slang.meaning}</p>
       <h2>Usage:</h2>
       <p className="mt-2">{slang.example.firstPerson}</p>
