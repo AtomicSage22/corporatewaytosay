@@ -1,4 +1,4 @@
-const slangs = [
+const slangsList = [
   {
     username: "ashharrrrr",
     title: "I'll get back to that later",
@@ -44,4 +44,4 @@ const slangs = [
   },
 ];
 
-export { slangs };
+export { slangsList };
