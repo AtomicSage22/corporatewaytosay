@@ -9,7 +9,10 @@ import { slangsList } from "../slangs/slangs";
 export default function Home() {
   const [search, setSearch] = useState("");
   const [slangs, setSlangs] = useState(slangsList);
-  const [filteredSlangs, setFilteredSlangs] = useState([]);
+
+  const filteredSlangs = slangs.filter((item) => {
+    return item.meaning.toLowerCase().includes(search.toLowerCase());
+  });
 
   return (
     <>
@@ -22,9 +25,9 @@ export default function Home() {
           }}
         >
           <SearchBox search={search} setSearch={setSearch} />
-          {filteredSlangs.length
-            ? filteredSlangs.map((slang) => <Card slang={slang} />)
-            : slangs.map((slang) => <Card slang={slang} />)}
+          {filteredSlangs.map((slang) => (
+            <Card slang={slang} />
+          ))}
         </Container>
       </main>
     </>
