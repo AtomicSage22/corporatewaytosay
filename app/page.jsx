@@ -3,10 +3,19 @@
 import React, { useState, useEffect } from "react";
 
 import Card from "@/components/Card";
+import Cards from "@/components/Cards";
+import Hero from "@/components/Hero";
 import { Container } from "@mui/material";
 import SearchBox from "@/components/SearchBox";
 import { slangsList } from "../slangs/slangs";
 import axios from "axios";
+
+const placeholders = [
+  "Stop with your BS",
+  "I know you're lying",
+  "I did that, don't take my credit",
+  "I told you this before",
+]
 
 function parseStringToJSX(str) {
   // Convert the string to an array of lines
@@ -59,10 +68,12 @@ export default function Home() {
             flexDirection: "column",
           }}
         >
-          <SearchBox search={search} setSearch={setSearch} onSubmit={fetchData} />
-          {responses.map((response, index) => (
+          <Hero />
+          <SearchBox search={search} setSearch={setSearch} onSubmit={fetchData} placeholders={placeholders} />
+          {/* {responses.map((response, index) => (
             <Card slang={response} prompt={prompt} key={index} />
-          ))}
+          ))} */}
+          {responses.length && <Cards items={responses} prompt={search} />}
         </Container>
       </main>
     </>
