@@ -50,7 +50,7 @@ export default function Home() {
 
 
   async function fetchData() {
-    const response = await axios.get(`http://localhost:3000/api/translation?prompt=${encodeURIComponent(intialPrompt + search)}`);
+    const response = await axios.get(`/api/translation?prompt=${encodeURIComponent(intialPrompt + search)}`);
     setResponses(response.data.response.trim().split(/\d+\.\s+/)
     .map(sentence => sentence.trim().replace(/\n$/, ''))
     .filter(sentence => sentence !== ''))
